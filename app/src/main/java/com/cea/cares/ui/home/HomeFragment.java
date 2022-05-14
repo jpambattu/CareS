@@ -10,6 +10,8 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.cea.cares.SharedPrefManager;
+import com.cea.cares.User;
 import com.cea.cares.databinding.FragmentHomeBinding;
 
 public class HomeFragment extends Fragment {
@@ -26,6 +28,12 @@ public class HomeFragment extends Fragment {
 
         final TextView textView = binding.textHome;
         homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+
+        TextView textViewUsername = binding.textViewUsername;
+
+        User user = SharedPrefManager.getInstance(getActivity()).getUser();
+        String text = "Hello " + user.getUsername();
+        textViewUsername.setText(text);
         return root;
     }
 

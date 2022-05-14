@@ -12,14 +12,19 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.cea.cares.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigation_activity"
+        android:name="com.cea.cares.ui.activity.ActivityFragment"
+        android:label="@string/title_activity"
+        tools:layout="@layout/fragment_activity" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.cea.cares.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_profile"
+        android:name="com.cea.cares.ui.profile.ProfileFragment"
+        android:label="@string/title_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/navigation_moreactions"
+        android:name="com.cea.cares.ui.moreactions.MoreActionsFragment"
+        android:label="@string/title_moreactions"
+        tools:layout="@layout/fragment_moreactions" />
 </navigation>

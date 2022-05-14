@@ -1,4 +1,4 @@
-package com.cea.cares.ui.notifications;
+package com.cea.cares.ui.profile;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

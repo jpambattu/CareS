@@ -1,4 +1,4 @@
-package com.cea.cares.ui.dashboard;
+package com.cea.cares.ui.activity;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

@@ -7,10 +7,12 @@ import android.content.SharedPreferences;
 public class SharedPrefManager {
 
     //the constants
-    private static final String SHARED_PREF_NAME = "sharedpref";
+    private static final String SHARED_PREF_NAME = "sharedprefCares";
     private static final String KEY_USERNAME = "keyusername";
     private static final String KEY_EMAIL = "keyemail";
     private static final String KEY_ID = "keyid";
+    private static final String KEY_TARGET = "keytarget";
+    private static final String KEY_WEEK = "keyweek";
 
     private static SharedPrefManager mInstance;
     private static Context mCtx;
@@ -32,8 +34,10 @@ public class SharedPrefManager {
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putInt(KEY_ID, user.getId());
+        editor.putInt(KEY_TARGET, user.getTarget());
         editor.putString(KEY_USERNAME, user.getUsername());
         editor.putString(KEY_EMAIL, user.getEmail());
+        editor.putInt(KEY_WEEK, user.getWeek());
         editor.apply();
     }
 
@@ -48,8 +52,10 @@ public class SharedPrefManager {
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         return new User(
                 sharedPreferences.getInt(KEY_ID, -1),
+                sharedPreferences.getInt(KEY_TARGET,-1),
                 sharedPreferences.getString(KEY_USERNAME, null),
-                sharedPreferences.getString(KEY_EMAIL, null)
+                sharedPreferences.getString(KEY_EMAIL, null),
+                sharedPreferences.getInt(KEY_WEEK,-1)
         );
     }
 
@@ -61,4 +67,6 @@ public class SharedPrefManager {
         editor.apply();
         mCtx.startActivity(new Intent(mCtx, LoginActivity.class));
     }
+
 }
+

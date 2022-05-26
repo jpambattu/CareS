@@ -16,7 +16,7 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 
-public class MainLoginActivity extends AppCompatActivity {
+public class RegisterActivity extends AppCompatActivity {
 
     EditText editTextUsername, editTextEmail, editTextPassword;
 
@@ -33,9 +33,9 @@ public class MainLoginActivity extends AppCompatActivity {
             return;
         }
 
-        editTextUsername = (EditText) findViewById(R.id.editTextUsername);
-        editTextEmail = (EditText) findViewById(R.id.editTextEmail);
-        editTextPassword = (EditText) findViewById(R.id.editTextPassword);
+        editTextUsername = findViewById(R.id.editTextUsername);
+        editTextEmail = findViewById(R.id.editTextEmail);
+        editTextPassword = findViewById(R.id.editTextPassword);
 
 
         findViewById(R.id.buttonRegister).setOnClickListener(new View.OnClickListener() {
@@ -53,7 +53,7 @@ public class MainLoginActivity extends AppCompatActivity {
                 //if user pressed on login
                 //we will open the login screen
                 finish();
-                startActivity(new Intent(MainLoginActivity.this, LoginActivity.class));
+                startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
             }
         });
 
@@ -140,8 +140,10 @@ public class MainLoginActivity extends AppCompatActivity {
                         //creating a new user object
                         User user = new User(
                                 userJson.getInt("id"),
+                                userJson.getInt("target"),
                                 userJson.getString("username"),
-                                userJson.getString("email")
+                                userJson.getString("email"),
+                                userJson.getInt("week")
                         );
 
                         //storing the user in shared preferences
@@ -149,7 +151,7 @@ public class MainLoginActivity extends AppCompatActivity {
 
                         //starting the profile activity
                         finish();
-                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                        startActivity(new Intent(getApplicationContext(), WeekActivity.class));
                     } else {
                         Toast.makeText(getApplicationContext(), "Some error occurred", Toast.LENGTH_SHORT).show();
                     }
@@ -162,6 +164,11 @@ public class MainLoginActivity extends AppCompatActivity {
         //executing the async task
         RegisterUser ru = new RegisterUser();
         ru.execute();
+    }
+
+    @Override
+    public void onBackPressed() {
+        finishAffinity();
     }
 
 }

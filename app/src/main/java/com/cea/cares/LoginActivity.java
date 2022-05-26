@@ -44,7 +44,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 //open register screen
                 finish();
-                startActivity(new Intent(getApplicationContext(), MainLoginActivity.class));
+                startActivity(new Intent(getApplicationContext(), RegisterActivity.class));
             }
         });
     }
@@ -100,8 +100,10 @@ public class LoginActivity extends AppCompatActivity {
                         //creating a new user object
                         User user = new User(
                                 userJson.getInt("id"),
+                                userJson.getInt("target"),
                                 userJson.getString("username"),
-                                userJson.getString("email")
+                                userJson.getString("email"),
+                                userJson.getInt("week")
                         );
 
                         //storing the user in shared preferences
@@ -135,5 +137,11 @@ public class LoginActivity extends AppCompatActivity {
 
         UserLogin ul = new UserLogin();
         ul.execute();
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        finishAffinity();
     }
 }

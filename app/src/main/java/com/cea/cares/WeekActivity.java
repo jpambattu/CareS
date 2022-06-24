@@ -43,7 +43,9 @@ public class WeekActivity extends AppCompatActivity {
         EditText week = findViewById(R.id.mtrl_calendar_days_of_week);
         Button buttonWeek = findViewById(R.id.buttonweek);
         user = SharedPrefManager.getInstance(getApplicationContext()).getUser();
-        weekNo  = week.getText().toString().trim();
+//        weekNo  = week.getText().toString().trim();
+
+
         id = String.valueOf(user.getId());
         textView = findViewById(R.id.textView3);
 
@@ -58,6 +60,9 @@ public class WeekActivity extends AppCompatActivity {
         buttonWeek.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                weekNo  = week.getText().toString().trim();
+
                 if(Objects.equals(weekNo, "")){
                     Date date1;
                     Date date2;

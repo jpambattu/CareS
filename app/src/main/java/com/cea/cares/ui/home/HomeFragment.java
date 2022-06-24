@@ -41,8 +41,7 @@ public class HomeFragment extends Fragment {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        TextView textView = binding.textHome;
-        textView.setText("This is Home Fragment");
+
 
         TextView textViewUsername = binding.textViewUsername;
         textViewpredict = binding.textViewpredict;

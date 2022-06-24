@@ -9,9 +9,9 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginEnd="10dp"
+        android:layout_marginEnd="4dp"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="0dp">
+        tools:layout_editor_absoluteY="66dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -28,7 +28,7 @@
                 android:layout_width="287dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="Order of Gravida"
+                android:hint="Order of Gravida (Enter in numeric form)"
                 app:layout_constraintStart_toStartOf="parent"
                 tools:layout_editor_absoluteY="20dp" />
 
@@ -46,7 +46,7 @@
                 android:layout_width="287dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="Height"
+                android:hint="Height in meters"
                 app:layout_constraintStart_toStartOf="parent"
                 tools:layout_editor_absoluteY="20dp" />
 
@@ -55,7 +55,7 @@
                 android:layout_width="287dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="Weight"
+                android:hint="Weight in kg"
                 app:layout_constraintStart_toStartOf="parent"
                 tools:layout_editor_absoluteY="20dp" />
 
@@ -64,153 +64,659 @@
                 android:layout_width="287dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="Mid arm circumferene"
+                android:hint="Mid arm circumferene in meters"
                 app:layout_constraintStart_toStartOf="parent"
                 tools:layout_editor_absoluteY="20dp" />
 
-            <EditText
-                android:id="@+id/workload"
-                android:layout_width="287dp"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Workload"
-                app:layout_constraintStart_toStartOf="parent"
-                tools:layout_editor_absoluteY="20dp" />
+            <!-- Workload -->
 
-            <EditText
-                android:id="@+id/anemia"
-                android:layout_width="287dp"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Anemia"
-                app:layout_constraintStart_toStartOf="parent"
-                tools:layout_editor_absoluteY="20dp" />
+            <LinearLayout
 
-            <EditText
-                android:id="@+id/asthma"
-                android:layout_width="287dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Asthma"
-                app:layout_constraintStart_toStartOf="parent"
-                tools:layout_editor_absoluteY="20dp" />
+                android:orientation="vertical">
 
-            <EditText
-                android:id="@+id/bad_obsteric_history"
-                android:layout_width="287dp"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Bad obsteric history"
-                app:layout_constraintStart_toStartOf="parent"
-                tools:layout_editor_absoluteY="20dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Workload"
+                    android:textSize="20dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:layout_editor_absoluteY="20dp" />
 
-            <EditText
-                android:id="@+id/injection"
-                android:layout_width="287dp"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Injection"
-                app:layout_constraintStart_toStartOf="parent"
-                tools:layout_editor_absoluteY="20dp" />
+                <RadioGroup
+                    android:id="@+id/radioWorkload"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/falif"
-                android:layout_width="287dp"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="falif"
-                app:layout_constraintStart_toStartOf="parent"
-                tools:layout_editor_absoluteY="20dp" />
+                    <RadioButton
+                        android:id="@+id/one"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:checked="false"
+                        android:text="yes" />
 
-            <EditText
-                android:id="@+id/iron"
-                android:layout_width="287dp"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Iron intake"
-                app:layout_constraintStart_toStartOf="parent"
-                tools:layout_editor_absoluteY="20dp" />
+                    <RadioButton
+                        android:id="@+id/two"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:checked="false"
+                        android:text="no" />
+                </RadioGroup>
+            </LinearLayout>
 
-            <EditText
-                android:id="@+id/second_workload"
-                android:layout_width="287dp"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Second Workload"
-                app:layout_constraintStart_toStartOf="parent"
-                tools:layout_editor_absoluteY="20dp" />
+            <!-- Anemia -->
 
-            <EditText
-                android:id="@+id/convolusion"
-                android:layout_width="287dp"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Convolusion"
-                app:layout_constraintStart_toStartOf="parent"
-                tools:layout_editor_absoluteY="20dp" />
+            <LinearLayout
 
-            <EditText
-                android:id="@+id/bleed"
-                android:layout_width="287dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Bleed"
-                app:layout_constraintStart_toStartOf="parent"
-                tools:layout_editor_absoluteY="20dp" />
+                android:orientation="vertical">
 
-            <EditText
-                android:id="@+id/asthma2"
-                android:layout_width="287dp"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Second Asthma"
-                app:layout_constraintStart_toStartOf="parent"
-                tools:layout_editor_absoluteY="20dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Anemia"
+                    android:textSize="20dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:layout_editor_absoluteY="20dp" />
 
-            <EditText
-                android:id="@+id/injection2"
-                android:layout_width="287dp"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Second injection"
-                app:layout_constraintStart_toStartOf="parent"
-                tools:layout_editor_absoluteY="20dp" />
+                <RadioGroup
+                    android:id="@+id/radioAnemia"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/iron2"
-                android:layout_width="287dp"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Second iron"
-                app:layout_constraintStart_toStartOf="parent"
-                tools:layout_editor_absoluteY="20dp" />
+                    <RadioButton
+                        android:id="@+id/three"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:checked="false"
+                        android:text="yes" />
 
-            <EditText
-                android:id="@+id/convolusion2"
-                android:layout_width="287dp"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Second Convolusion"
-                app:layout_constraintStart_toStartOf="parent"
-                tools:layout_editor_absoluteY="20dp" />
+                    <RadioButton
+                        android:id="@+id/four"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:checked="false"
+                        android:text="no" />
+                </RadioGroup>
+            </LinearLayout>
 
-            <EditText
-                android:id="@+id/bleed2"
-                android:layout_width="287dp"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Second bleed"
-                app:layout_constraintStart_toStartOf="parent"
-                tools:layout_editor_absoluteY="20dp" />
+            <!-- Asthma -->
 
-            <EditText
-                android:id="@+id/fever"
-                android:layout_width="287dp"
+            <LinearLayout
+
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Fever"
-                app:layout_constraintStart_toStartOf="parent"
-                tools:layout_editor_absoluteY="20dp" />
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Asthma"
+                    android:textSize="20dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:layout_editor_absoluteY="20dp" />
+
+                <RadioGroup
+                    android:id="@+id/radioAsthma"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/five"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:checked="false"
+                        android:text="yes" />
+
+                    <RadioButton
+                        android:id="@+id/six"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:checked="false"
+                        android:text="no" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <!-- Bad obsteric history -->
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bad obsteric history"
+                    android:textSize="20dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:layout_editor_absoluteY="20dp" />
+
+                <RadioGroup
+                    android:id="@+id/radioBadh"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/seven"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:checked="false"
+                        android:text="yes" />
+
+                    <RadioButton
+                        android:id="@+id/eight"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:checked="false"
+                        android:text="no" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <!-- Injection -->
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Injection"
+                    android:textSize="20dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:layout_editor_absoluteY="20dp" />
+
+                <RadioGroup
+                    android:id="@+id/radioInjection"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/nine"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:checked="false"
+                        android:text="yes" />
+
+                    <RadioButton
+                        android:id="@+id/ten"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:checked="false"
+                        android:text="no" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <!-- Falif -->
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Diabetic"
+                    android:textSize="20dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:layout_editor_absoluteY="20dp" />
+
+                <RadioGroup
+                    android:id="@+id/radioFalif"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/eleven"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:checked="false"
+                        android:text="yes" />
+
+                    <RadioButton
+                        android:id="@+id/twelve"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:checked="false"
+                        android:text="no" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <!-- Iron -->
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Iron intake"
+                    android:textSize="20dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:layout_editor_absoluteY="20dp" />
+
+                <RadioGroup
+                    android:id="@+id/radioIron"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/thirteen"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:checked="false"
+                        android:text="yes"
+                        tools:ignore="DuplicateIds" />
+
+                    <RadioButton
+                        android:id="@+id/fourteen"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:checked="false"
+                        android:text="no" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <!-- Second Workload -->
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Second Workload"
+                    android:textSize="20dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:layout_editor_absoluteY="20dp" />
+
+                <RadioGroup
+                    android:id="@+id/radioSecWrk"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/fifteen"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:checked="false"
+                        android:text="yes" />
+
+                    <RadioButton
+                        android:id="@+id/sixteen"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:checked="false"
+                        android:text="no" />
+                </RadioGroup>
+            </LinearLayout>
+
+
+            <!-- Convolusion -->
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Convolusion"
+                    android:textSize="20dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:layout_editor_absoluteY="20dp" />
+
+                <RadioGroup
+                    android:id="@+id/radioConv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/seventeen"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:checked="false"
+                        android:text="yes" />
+
+                    <RadioButton
+                        android:id="@+id/eighteen"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:checked="false"
+                        android:text="no" />
+                </RadioGroup>
+            </LinearLayout>
+
+
+            <!-- Bleed -->
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bleed"
+                    android:textSize="20dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:layout_editor_absoluteY="20dp" />
+
+                <RadioGroup
+                    android:id="@+id/radioBleed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/ninteen"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:checked="false"
+                        android:text="yes" />
+
+                    <RadioButton
+                        android:id="@+id/twenty"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:checked="false"
+                        android:text="no" />
+                </RadioGroup>
+            </LinearLayout>
+
+
+            <!-- Second Asthma -->
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Second Asthma"
+                    android:textSize="20dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:layout_editor_absoluteY="20dp" />
+
+                <RadioGroup
+                    android:id="@+id/radioSecAst"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/twentyone"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:checked="false"
+                        android:text="yes" />
+
+                    <RadioButton
+                        android:id="@+id/twentytwo"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:checked="false"
+                        android:text="no" />
+                </RadioGroup>
+            </LinearLayout>
+
+
+            <!-- Second Injection -->
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Second Injection"
+                    android:textSize="20dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:layout_editor_absoluteY="20dp" />
+
+                <RadioGroup
+                    android:id="@+id/radioSecInj"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/twentythree"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:checked="false"
+                        android:text="yes" />
+
+                    <RadioButton
+                        android:id="@+id/twentyfour"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:checked="false"
+                        android:text="no" />
+                </RadioGroup>
+            </LinearLayout>
+
+
+            <!-- Second Iron -->
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Second Iron"
+                    android:textSize="20dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:layout_editor_absoluteY="20dp" />
+
+                <RadioGroup
+                    android:id="@+id/radioSecIrn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/twentyfive"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:checked="false"
+                        android:text="yes" />
+
+                    <RadioButton
+                        android:id="@+id/twentysix"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:checked="false"
+                        android:text="no" />
+                </RadioGroup>
+            </LinearLayout>
+
+
+            <!-- Second Convulsion -->
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Second Convulsion"
+                    android:textSize="20dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:layout_editor_absoluteY="20dp" />
+
+                <RadioGroup
+                    android:id="@+id/radioSecCnv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/twentyseven"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:checked="false"
+                        android:text="yes" />
+
+                    <RadioButton
+                        android:id="@+id/twentyeight"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:checked="false"
+                        android:text="no" />
+                </RadioGroup>
+            </LinearLayout>
+
+
+            <!-- Second Bleed -->
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Second Bleed"
+                    android:textSize="20dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:layout_editor_absoluteY="20dp" />
+
+                <RadioGroup
+                    android:id="@+id/radioSecBld"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/twentynine"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:checked="false"
+                        android:text="yes" />
+
+                    <RadioButton
+                        android:id="@+id/thirty"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:checked="false"
+                        android:text="no" />
+                </RadioGroup>
+            </LinearLayout>
+
+
+            <!-- Fever -->
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Fever"
+                    android:textSize="20dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:layout_editor_absoluteY="20dp" />
+
+                <RadioGroup
+                    android:id="@+id/radioFvr"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/thirtyone"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:checked="false"
+                        android:text="yes" />
+
+                    <RadioButton
+                        android:id="@+id/thirytwo"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:checked="false"
+                        android:text="no" />
+                </RadioGroup>
+            </LinearLayout>
+
 
             <Button
                 android:id="@+id/submit"

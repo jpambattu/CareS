@@ -146,8 +146,11 @@ public class RegisterActivity extends AppCompatActivity {
                                 userJson.getInt("week")
                         );
 
+                        Toast.makeText(getApplicationContext(), "user created", Toast.LENGTH_SHORT).show();
+
                         //storing the user in shared preferences
                         SharedPrefManager.getInstance(getApplicationContext()).userLogin(user);
+                        Toast.makeText(getApplicationContext(), "saved shared pref", Toast.LENGTH_SHORT).show();
 
                         //starting the profile activity
                         finish();

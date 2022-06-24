@@ -72,7 +72,7 @@ public class WeekActivity extends AppCompatActivity {
                         date2 = dates.parse(selectedDate);
                         long difference =  Math.abs(date1.getTime() - date2.getTime());
                         long differenceDates = difference / (24 * 60 * 60 * 1000);
-                        weekNo = String.valueOf(differenceDates / 7);
+                        weekNo = String.valueOf(differenceDates / 7 + 1);
 
 
                     } catch (ParseException e) {
@@ -188,7 +188,8 @@ public class WeekActivity extends AppCompatActivity {
     private void showDate(int year, int month, int day) {
 
         selectedDate = day + "/" + month + "/" + year;
-        textView.setText(selectedDate);
+        if (!selectedDate.equals(currentDate))
+            textView.setText(selectedDate);
 
     }
 }

@@ -8,7 +8,7 @@ public class URLs {
     public static final String URL_LOGIN= ROOT_URL + "login";
     public static final String URL_UPDATE= ROOT_URL + "update";
     public static final String URL_PREDICT= "http://10.0.2.2:5000/predict?id=";
-//public static final String URL_PREDICT= "http://192.168.209.231/predict?id=";
+//public static final String URL_PREDICT= "http://192.168.209.231:5000/predict?id=";
     public static final String URL_REFRESH= ROOT_URL + "refresh";
     public static final String URL_WEEK= ROOT_URL + "week";
     public static final String URL_FOOD= ROOT_URL + "food";

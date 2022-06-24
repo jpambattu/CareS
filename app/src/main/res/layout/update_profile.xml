@@ -21,7 +21,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="Hello" />
+                android:text="Hello..."
+                android:textSize="18sp"/>
 
             <EditText
                 android:id="@+id/orderGravida"
@@ -390,7 +391,7 @@
             </LinearLayout>
 
 
-            <!-- Convolusion -->
+            <!-- Convulsion -->
 
             <LinearLayout
 
@@ -401,7 +402,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Convolusion"
+                    android:text="Convulsion"
                     android:textSize="20dp"
                     app:layout_constraintStart_toStartOf="parent"
                     tools:layout_editor_absoluteY="20dp" />

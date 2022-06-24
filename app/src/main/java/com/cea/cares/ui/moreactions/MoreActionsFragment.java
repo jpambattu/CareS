@@ -37,8 +37,6 @@ public class MoreActionsFragment extends Fragment {
         binding = FragmentMoreactionsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textDashboard;
-        textView.setText("More Actions");
 
         final Button button = binding.buttonLogout;
         button.setOnClickListener(view -> SharedPrefManager.getInstance(getActivity()).logout());

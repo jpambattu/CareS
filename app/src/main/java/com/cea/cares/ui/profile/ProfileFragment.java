@@ -30,8 +30,6 @@ public class ProfileFragment extends Fragment {
         binding = FragmentProfileBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textNotifications;
-        textView.setText("This is profile Fragment");
 
         user = SharedPrefManager.getInstance(getActivity()).getUser();
         username = user.getUsername();

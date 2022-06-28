@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+
 import androidx.fragment.app.Fragment;
 
 import com.cea.cares.RequestHandler;
@@ -24,6 +25,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
+
 
 public class HomeFragment extends Fragment {
 
@@ -58,9 +60,11 @@ public class HomeFragment extends Fragment {
 
         target = user.getTarget();
         if(target == 1)
-            textViewpredict.setText("you and your baby is just fine" + "\nthis is your " + week + " week");
+            textViewpredict.setText("you and your baby is just fine" + "\nthis is your " + " week " + week);
         else if (target == 0)
-            textViewpredict.setText("Our baby is underweight!!!"+ "\nthis is your " + week + " week");
+            textViewpredict.setText("Our baby is underweight!!!"+ "\nthis is your " + " week " + week );
+        else
+            textViewpredict.setText("update the profile before using \nthe predict button");
 
         getFood();
 
@@ -100,14 +104,7 @@ public class HomeFragment extends Fragment {
             protected void onPostExecute(String s) {
                 super.onPostExecute(s);
 
-                Toast.makeText(getActivity(),"Predicted Successfully",Toast.LENGTH_SHORT).show();
-
-                //HomeViewModel homeViewModel = new HomeViewModel();
-                //homeViewModel.refreshUser(requireContext());
-
-
                 refreshUser();
-
 
             }
 
@@ -117,6 +114,8 @@ public class HomeFragment extends Fragment {
         Predict pr = new Predict();
         pr.execute();
     }
+
+
 
     public void refreshUser() {
 
@@ -147,7 +146,6 @@ public class HomeFragment extends Fragment {
 
                     //if no error in response
                     if (!obj.getBoolean("error")) {
-                        Toast.makeText(getActivity(), obj.getString("message"), Toast.LENGTH_SHORT).show();
 
                         //getting the user from the response
                         JSONObject userJson = obj.getJSONObject("user");
@@ -169,9 +167,9 @@ public class HomeFragment extends Fragment {
                         int res = usercpy.getTarget();
                         int week = usercpy.getWeek();
                         if(res == 1)
-                            textViewpredict.setText("you and your baby is just fine" + "\nthis is your " + week + " week");
+                            textViewpredict.setText("you and your baby is just fine" + "\nthis is your " + " week " + week );
                         else if (res == 0)
-                            textViewpredict.setText("Our baby is underweight!!!"+ "\nthis is your " + week + " week");
+                            textViewpredict.setText("Our baby is underweight!!!"+ "\nthis is your " + " week " + week);
 
 //                        target = String.valueOf(res);
 //                        textViewpredict.setText(target);
@@ -219,17 +217,14 @@ public class HomeFragment extends Fragment {
 
                     //if no error in response
                     if (!obj.getBoolean("error")) {
-                        Toast.makeText(getActivity(), obj.getString("message"), Toast.LENGTH_SHORT).show();
 
                         //getting the user from the response
                         String food = obj.getString( "food");
 
-                        textViewFood.setText("These are the recommended food items\n" + food);
+                        textViewFood.setText("These are the recommended food items:\n" + food);
 
 
 
-                    } else {
-                        Toast.makeText(getActivity(), "Some error occurred", Toast.LENGTH_SHORT).show();
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -241,9 +236,6 @@ public class HomeFragment extends Fragment {
         gf.execute();
 
     }
-
-
-
 
 
 }

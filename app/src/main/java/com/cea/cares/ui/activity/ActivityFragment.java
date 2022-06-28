@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,12 +35,12 @@ import com.cea.cares.databinding.FragmentActivityBinding;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Locale;
-import java.util.Objects;
 
 public class ActivityFragment extends Fragment {
 
@@ -47,6 +48,7 @@ public class ActivityFragment extends Fragment {
     String week;
     TextView textViewExc;
     User user;
+    EditText drDate;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -54,12 +56,13 @@ public class ActivityFragment extends Fragment {
         binding = FragmentActivityBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        EditText drDate = binding.drDate;
+        drDate = binding.drDate;
         textViewExc = binding.exc;
 
         user = SharedPrefManager.getInstance(getActivity()).getUser();
 
         week = String.valueOf(user.getWeek());
+
 
         getExc();
 
@@ -71,39 +74,46 @@ public class ActivityFragment extends Fragment {
             public void onClick(View view) {
 
                  String appDate = drDate.getText().toString().trim();
-                 String currentDate = new SimpleDateFormat("dd/M/yyyy", Locale.getDefault()).format(new Date());
 
-                if(Objects.equals(appDate, ""))
-                    Toast.makeText(getActivity(),"Please enter the date", Toast.LENGTH_LONG).show();
+                if (TextUtils.isEmpty(appDate)) {
+                    drDate.setError("Please enter the date");
+                    drDate.requestFocus();
+                    return;
+                }
                 else{
-                    Date date1;
-                    Date date2;
-                    SimpleDateFormat dates = new SimpleDateFormat("dd/MM/yyyy");
-                    try {
-                        date1 = dates.parse(currentDate);
-                        date2 = dates.parse(appDate);
-                        long difference =  Math.abs(date1.getTime() - date2.getTime());
-                        long differenceDates = (difference / (24 * 60 * 60 * 1000)) - 1;
+                    String regex = "^(3[01]|[12][0-9]|0[1-9])/(1[0-2]|0[1-9])/[0-9]{4}$";
+                    boolean result = appDate.matches(regex);
+                    if(result) {
+
+                        Intent intent = new Intent(getActivity(), Background.class);
+
+                        PendingIntent pendingIntent = PendingIntent.getBroadcast(getContext(), 0, intent, PendingIntent.FLAG_ONE_SHOT);
+                        AlarmManager alarmManager = (AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
+
+                        long interval = 1000 * 20;
+
+                        String dateandtime = appDate + " " + "08:00";
+                        DateFormat formatter = new SimpleDateFormat("dd/M/yyyy hh:mm");
+
+                        try {
+                            Date date1 = formatter.parse(dateandtime);
+                            Toast.makeText(getContext(), "Notification Set", Toast.LENGTH_SHORT).show();
+                            alarmManager.set(AlarmManager.RTC_WAKEUP,date1.getTime(),pendingIntent);
+
+                        } catch (ParseException e) {
+                            e.printStackTrace();
+                        }
 
 
-                    } catch (ParseException e) {
-                        e.printStackTrace();
+                    } else {
+                        drDate.setError("Please enter the date in dd/mm/yyyy format");
+                        drDate.requestFocus();
+                        return;
                     }
 
-                    Intent intent = new Intent(getActivity(), Background.class);
 
-                    PendingIntent pendingIntent = PendingIntent.getBroadcast(getContext(), 0, intent, 0);
-                    AlarmManager alarmManager = (AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
-
-                    long interval = 1000 * 10;
-
-                    alarmManager.setExact(AlarmManager.RTC_WAKEUP,interval,pendingIntent);
-                    //alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, 20000, interval, pendingIntent);
-                    Toast.makeText(getContext(), "Notification Set", Toast.LENGTH_SHORT).show();
-                    //addNotification();
                 }
 
-                //addNotification();
             }
         });
 
@@ -121,13 +131,6 @@ public class ActivityFragment extends Fragment {
 
     public void addNotification( Context context) {
 
-//        Intent intent = new Intent(context, Background.class);
-//
-//        PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, intent, 0);
-//        AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-//
-//        alarmManager.cancel(pendingIntent);
-
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
             NotificationChannel channel = new NotificationChannel("my notification", "my notification", NotificationManager.IMPORTANCE_HIGH);
             NotificationManager manager = context.getSystemService(NotificationManager.class);
@@ -137,11 +140,12 @@ public class ActivityFragment extends Fragment {
 
         // Build notification
         // Actions are just fake
+
         NotificationCompat.Builder builder =
                 new NotificationCompat.Builder(context,"my notification");
-                builder.setContentTitle("New notification");
-                builder.setContentText("Subject");
-                builder.setSmallIcon(R.drawable.ic_home_black_24dp);
+                builder.setContentTitle("Hello there,");
+                builder.setContentText("The appointment is today");
+                builder.setSmallIcon(R.drawable.cares_notification_icon);
                 builder.setAutoCancel(true);
 
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(context);
@@ -181,17 +185,14 @@ public class ActivityFragment extends Fragment {
 
                     //if no error in response
                     if (!obj.getBoolean("error")) {
-                        Toast.makeText(getActivity(), obj.getString("message"), Toast.LENGTH_SHORT).show();
 
                         //getting the user from the response
                         String exc = obj.getString( "exc");
 
-                        textViewExc.setText("These are the recommended exercises \n " + exc);
+                        textViewExc.setText("These are the recommended exercises: \n " + exc);
 
 
 
-                    } else {
-                        Toast.makeText(getActivity(), "Some error occurred", Toast.LENGTH_SHORT).show();
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();

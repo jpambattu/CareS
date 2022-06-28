@@ -3,12 +3,14 @@ package com.cea.cares.ui.profile;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -31,6 +33,7 @@ public class UpdateProfile extends AppCompatActivity {
     EditText orderGravida,age,height,weight,midarmcir;
     RadioGroup workload,fever,anemia, iron2, bleed, asthma, convolusion2, bad_obs_history, injection,falif, iron, workload2, convolusion, bleed1, asthma2, inject2;
     String temp ;
+    TextView txtWkl,txtfvr,txtanm,txtirn2,txtbld,txtast,txtclnv2,txtbhst,txtinj,txtflil,txtirn,txtwkl2,txtclnv,txtbld1,txtast2,txtinj2;
 
 
     @Override
@@ -61,6 +64,23 @@ public class UpdateProfile extends AppCompatActivity {
         bleed = findViewById(R.id.radioSecBld);
         fever = findViewById(R.id.radioFvr);
 
+        txtWkl = findViewById(R.id.txtwkl);
+        txtanm = findViewById(R.id.txtanm);
+        txtast = findViewById(R.id.txtast);
+        txtbhst = findViewById(R.id.txtbadh);
+        txtinj = findViewById(R.id.txtinj);
+        txtflil = findViewById(R.id.txtflif);
+        txtirn = findViewById(R.id.txtirn);
+        txtwkl2 = findViewById(R.id.txtsecwkl);
+        txtclnv = findViewById(R.id.txtclnv);
+        txtbld1 = findViewById(R.id.txtbld);
+        txtast2 = findViewById(R.id.txtsecast);
+        txtinj2 = findViewById(R.id.txtsecinj);
+        txtirn2 = findViewById(R.id.txtsecirn);
+        txtclnv2 = findViewById(R.id.txtseccnlnv);
+        txtbld = findViewById(R.id.txtsecbld);
+        txtfvr = findViewById(R.id.txtfvr);
+
         Button submit = findViewById(R.id.submit);
 
         submit.setOnClickListener(view -> profileUpdate());
@@ -75,10 +95,48 @@ public class UpdateProfile extends AppCompatActivity {
         String id = String.valueOf(user.getId());
 
 
+        final String OrderGravida = orderGravida.getText().toString().trim();
+        if (TextUtils.isEmpty(OrderGravida)) {
+            orderGravida.setError("Please enter Order of Gravida");
+            orderGravida.requestFocus();
+            return;
+        }
+
+        final String mage = age.getText().toString().trim();
+        if (TextUtils.isEmpty(mage)) {
+            age.setError("Please enter the age");
+            age.requestFocus();
+            return;
+        }
+
+        final String hght = height.getText().toString().trim();
+        if (TextUtils.isEmpty(hght)) {
+            height.setError("Please enter the height");
+            height.requestFocus();
+            return;
+        }
+
+        final String wght = weight.getText().toString().trim();
+        if (TextUtils.isEmpty(wght)) {
+            weight.setError("Please enter the weight");
+            weight.requestFocus();
+            return;
+        }
+
+        final String mid_arm_cir = midarmcir.getText().toString().trim();
+        if (TextUtils.isEmpty(mid_arm_cir)) {
+            midarmcir.setError("Please enter the mid arm circumference");
+            midarmcir.requestFocus();
+            return;
+        }
+
+
         int wl = workload.getCheckedRadioButtonId();
         RadioButton radioButtonwl =  findViewById(wl);
         if(wl==-1){
-
+            Toast.makeText(getApplicationContext(),"Please select a Workload option",Toast.LENGTH_SHORT).show();
+            txtWkl.requestFocus();
+            return;
         }
         else{
             if(Objects.equals(radioButtonwl.getText(), "yes"))
@@ -92,7 +150,9 @@ public class UpdateProfile extends AppCompatActivity {
         int anm = anemia.getCheckedRadioButtonId();
         RadioButton radioButtonanm =  findViewById(anm);
         if(anm==-1){
-
+            Toast.makeText(getApplicationContext(),"Please select an anemia option",Toast.LENGTH_SHORT).show();
+            txtanm.requestFocus();
+            return;
         }
         else{
             if(Objects.equals(radioButtonanm.getText(), "yes"))
@@ -106,7 +166,9 @@ public class UpdateProfile extends AppCompatActivity {
         int ast = asthma.getCheckedRadioButtonId();
         RadioButton radioButtonast =  findViewById(ast);
         if(ast==-1){
-
+            Toast.makeText(getApplicationContext(),"Please select an asthma option",Toast.LENGTH_SHORT).show();
+            txtast.requestFocus();
+            return;
         }
         else{
             if(Objects.equals(radioButtonast.getText(), "yes"))
@@ -120,7 +182,9 @@ public class UpdateProfile extends AppCompatActivity {
         int bahs = bad_obs_history.getCheckedRadioButtonId();
         RadioButton radioButtonbahs =  findViewById(bahs);
         if(bahs==-1){
-
+            Toast.makeText(getApplicationContext(),"Please select a bad obsteric history option",Toast.LENGTH_SHORT).show();
+            txtbhst.requestFocus();
+            return;
         }
         else{
             if(Objects.equals(radioButtonbahs.getText(), "yes"))
@@ -134,7 +198,9 @@ public class UpdateProfile extends AppCompatActivity {
         int injct = injection.getCheckedRadioButtonId();
         RadioButton radioButtoninjct =  findViewById(injct);
         if(injct==-1){
-
+            Toast.makeText(getApplicationContext(),"Please select an injection option",Toast.LENGTH_SHORT).show();
+            txtinj.requestFocus();
+            return;
         }
         else{
             if(Objects.equals(radioButtoninjct.getText(), "yes"))
@@ -148,7 +214,9 @@ public class UpdateProfile extends AppCompatActivity {
         int flf = falif.getCheckedRadioButtonId();
         RadioButton radioButtonflf =  findViewById(flf);
         if(flf==-1){
-
+            Toast.makeText(getApplicationContext(),"Please select is diabetic or not option",Toast.LENGTH_SHORT).show();
+            txtflil.requestFocus();
+            return;
         }
         else{
             if(Objects.equals(radioButtonflf.getText(), "yes"))
@@ -162,7 +230,9 @@ public class UpdateProfile extends AppCompatActivity {
         int irn = iron.getCheckedRadioButtonId();
         RadioButton radioButtonirn =  findViewById(irn);
         if(irn==-1){
-
+            Toast.makeText(getApplicationContext(),"Please select an iron intake option",Toast.LENGTH_SHORT).show();
+            txtirn.requestFocus();
+            return;
         }
         else{
             if(Objects.equals(radioButtonirn.getText(), "yes"))
@@ -176,7 +246,9 @@ public class UpdateProfile extends AppCompatActivity {
         int wl2 = workload2.getCheckedRadioButtonId();
         RadioButton radioButtonwl2 =  findViewById(wl2);
         if(wl2==-1){
-
+            Toast.makeText(getApplicationContext(),"Please select a second Workload option",Toast.LENGTH_SHORT).show();
+            txtwkl2.requestFocus();
+            return;
         }
         else{
             if(Objects.equals(radioButtonwl2.getText(), "yes"))
@@ -190,7 +262,9 @@ public class UpdateProfile extends AppCompatActivity {
         int clnv = convolusion.getCheckedRadioButtonId();
         RadioButton radioButtonclnv =  findViewById(clnv);
         if(clnv==-1){
-
+            Toast.makeText(getApplicationContext(),"Please select have experienced Convulsion or not",Toast.LENGTH_SHORT).show();
+            txtclnv.requestFocus();
+            return;
         }
         else{
             if(Objects.equals(radioButtonclnv.getText(), "yes"))
@@ -204,7 +278,9 @@ public class UpdateProfile extends AppCompatActivity {
         int bled = bleed1.getCheckedRadioButtonId();
         RadioButton radioButtonbled =  findViewById(bled);
         if(bled==-1){
-
+            Toast.makeText(getApplicationContext(),"Please select a bleed option",Toast.LENGTH_SHORT).show();
+            txtbld1.requestFocus();
+            return;
         }
         else{
             if(Objects.equals(radioButtonbled.getText(), "yes"))
@@ -217,8 +293,10 @@ public class UpdateProfile extends AppCompatActivity {
 
         int ast2 = asthma2.getCheckedRadioButtonId();
         RadioButton radioButtonast2 =  findViewById(ast2);
-        if(ast==-1){
-
+        if(ast2==-1){
+            Toast.makeText(getApplicationContext(),"Please select a second asthma option",Toast.LENGTH_SHORT).show();
+            txtast2.requestFocus();
+            return;
         }
         else{
             if(Objects.equals(radioButtonast2.getText(), "yes"))
@@ -231,7 +309,9 @@ public class UpdateProfile extends AppCompatActivity {
         int injct2 = inject2.getCheckedRadioButtonId();
         RadioButton radioButtoninjct2 =  findViewById(injct2);
         if(injct2==-1){
-
+            Toast.makeText(getApplicationContext(),"Please select a second injection option",Toast.LENGTH_SHORT).show();
+            txtinj2.requestFocus();
+            return;
         }
         else{
             if(Objects.equals(radioButtoninjct2.getText(), "yes"))
@@ -246,7 +326,9 @@ public class UpdateProfile extends AppCompatActivity {
         int irn2 = iron2.getCheckedRadioButtonId();
         RadioButton radioButtonirn2 =  findViewById(irn2);
         if(irn2==-1){
-
+            Toast.makeText(getApplicationContext(),"Please select a second iron intake option",Toast.LENGTH_SHORT).show();
+            txtirn2.requestFocus();
+            return;
         }
         else{
             if(Objects.equals(radioButtonirn2.getText(), "yes"))
@@ -260,7 +342,9 @@ public class UpdateProfile extends AppCompatActivity {
         int clnv2 = convolusion2.getCheckedRadioButtonId();
         RadioButton radioButtonclnv2 =  findViewById(clnv2);
         if(clnv2==-1){
-
+            Toast.makeText(getApplicationContext(),"Please select a second convulsion option",Toast.LENGTH_SHORT).show();
+            txtclnv2.requestFocus();
+            return;
         }
         else{
             if(Objects.equals(radioButtonclnv2.getText(), "yes"))
@@ -274,7 +358,9 @@ public class UpdateProfile extends AppCompatActivity {
         int bled2 = bleed.getCheckedRadioButtonId();
         RadioButton radioButtonbled2 =  findViewById(bled2);
         if(bled2==-1){
-
+            Toast.makeText(getApplicationContext(),"Please select a second bleed option",Toast.LENGTH_SHORT).show();
+            txtbld.requestFocus();
+            return;
         }
         else{
             if(Objects.equals(radioButtonbled2.getText(), "yes"))
@@ -288,7 +374,9 @@ public class UpdateProfile extends AppCompatActivity {
         int fvrr = fever.getCheckedRadioButtonId();
         RadioButton radioButtonfvrr =  findViewById(fvrr);
         if(fvrr==-1){
-
+            Toast.makeText(getApplicationContext(),"Please select have caught fever or not option",Toast.LENGTH_SHORT).show();
+            txtfvr.requestFocus();
+            return;
         }
         else{
             if(Objects.equals(radioButtonfvrr.getText(), "yes"))
@@ -300,11 +388,7 @@ public class UpdateProfile extends AppCompatActivity {
         final String fvr = temp ;
 
 
-        final String OrderGravida = orderGravida.getText().toString().trim();
-        final String mage = age.getText().toString().trim();
-        final String hght = height.getText().toString().trim();
-        final String wght = weight.getText().toString().trim();
-        final String mid_arm_cir = midarmcir.getText().toString().trim();
+
 
 
 
@@ -326,8 +410,8 @@ public class UpdateProfile extends AppCompatActivity {
                 //creating request parameters
                 HashMap<String, String> params = new HashMap<>();
                 params.put("id",id);
-                params.put("parity", OrderGravida);
-                params.put("mother_age", mage);
+                params.put("parity", OrderGravida+".0");
+                params.put("mother_age", mage+".0");
                 params.put("mother_height", hght);
                 params.put("mid_arm_cir", mid_arm_cir);
                 params.put("workload", wkload);

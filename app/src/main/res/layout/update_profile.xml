@@ -78,6 +78,8 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/txtwkl"
+                    style="@android:style/Widget.EditText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Workload"
@@ -118,6 +120,8 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/txtanm"
+                    style="@android:style/Widget.EditText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Anemia"
@@ -158,6 +162,8 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/txtast"
+                    style="@android:style/Widget.EditText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Asthma"
@@ -198,6 +204,8 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/txtbadh"
+                    style="@android:style/Widget.EditText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Bad obsteric history"
@@ -238,6 +246,8 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/txtinj"
+                    style="@android:style/Widget.EditText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Injection"
@@ -278,6 +288,8 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/txtflif"
+                    style="@android:style/Widget.EditText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Diabetic"
@@ -318,6 +330,8 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/txtirn"
+                    style="@android:style/Widget.EditText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Iron intake"
@@ -359,6 +373,8 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/txtsecwkl"
+                    style="@android:style/Widget.EditText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Second Workload"
@@ -400,6 +416,8 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/txtclnv"
+                    style="@android:style/Widget.EditText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Convulsion"
@@ -441,6 +459,8 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/txtbld"
+                    style="@android:style/Widget.EditText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Bleed"
@@ -482,6 +502,8 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/txtsecast"
+                    style="@android:style/Widget.EditText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Second Asthma"
@@ -523,6 +545,8 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/txtsecinj"
+                    style="@android:style/Widget.EditText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Second Injection"
@@ -564,6 +588,8 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/txtsecirn"
+                    style="@android:style/Widget.EditText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Second Iron"
@@ -605,6 +631,8 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/txtseccnlnv"
+                    style="@android:style/Widget.EditText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Second Convulsion"
@@ -646,6 +674,8 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/txtsecbld"
+                    style="@android:style/Widget.EditText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Second Bleed"
@@ -687,6 +717,8 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/txtfvr"
+                    style="@android:style/Widget.EditText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Fever"

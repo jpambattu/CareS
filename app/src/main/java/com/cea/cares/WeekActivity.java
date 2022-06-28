@@ -43,8 +43,6 @@ public class WeekActivity extends AppCompatActivity {
         EditText week = findViewById(R.id.mtrl_calendar_days_of_week);
         Button buttonWeek = findViewById(R.id.buttonweek);
         user = SharedPrefManager.getInstance(getApplicationContext()).getUser();
-//        weekNo  = week.getText().toString().trim();
-
 
         id = String.valueOf(user.getId());
         textView = findViewById(R.id.textView3);
@@ -63,7 +61,7 @@ public class WeekActivity extends AppCompatActivity {
 
                 weekNo  = week.getText().toString().trim();
 
-                if(Objects.equals(weekNo, "")){
+                if(!Objects.equals(currentDate, selectedDate)){
                     Date date1;
                     Date date2;
                     SimpleDateFormat dates = new SimpleDateFormat("dd/MM/yyyy");
@@ -80,9 +78,10 @@ public class WeekActivity extends AppCompatActivity {
                     }
 
                 }
-                else if (Objects.equals(currentDate,selectedDate) && Objects.equals(weekNo, ""))
-                    weekNo = "1";
-                Toast.makeText(getApplicationContext(),weekNo, Toast.LENGTH_LONG).show();
+                else if (Objects.equals(currentDate,selectedDate) && Objects.equals(weekNo, "")) {
+                    Toast.makeText(getApplicationContext(), "please enter either of the input ", Toast.LENGTH_LONG).show();
+                    return;
+                }
                 updateWeek();
             }
         });
@@ -102,6 +101,7 @@ public class WeekActivity extends AppCompatActivity {
                 HashMap<String, String> params = new HashMap<>();
                 params.put("id",id);
                 params.put("week",weekNo);
+                params.put("date",currentDate + "," + weekNo);
 
                 //returing the response
                 return requestHandler.sendPostRequest(URLs.URL_WEEK,params);
@@ -118,7 +118,6 @@ public class WeekActivity extends AppCompatActivity {
 
                     //if no error in response
                     if (!obj.getBoolean("error")) {
-                        Toast.makeText(getApplicationContext(), obj.getString("message"), Toast.LENGTH_SHORT).show();
 
                         //getting the user from the response
                         JSONObject userJson = obj.getJSONObject("user");
@@ -139,8 +138,6 @@ public class WeekActivity extends AppCompatActivity {
                         finish();
                         startActivity(new Intent(getApplicationContext(), MainActivity.class));
 
-                    } else {
-                        Toast.makeText(getApplicationContext(), "Some error occurred", Toast.LENGTH_SHORT).show();
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -158,9 +155,6 @@ public class WeekActivity extends AppCompatActivity {
     @SuppressWarnings("deprecation")
     public void setDate(View view) {
         showDialog(999);
-        Toast.makeText(getApplicationContext(), "ca",
-                        Toast.LENGTH_SHORT)
-                .show();
     }
 
     @Override

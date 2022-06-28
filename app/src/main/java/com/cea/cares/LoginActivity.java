@@ -1,5 +1,6 @@
 package com.cea.cares;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -14,7 +15,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -25,8 +30,8 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
 
-        editTextUsername = (EditText) findViewById(R.id.editTextUsername);
-        editTextPassword = (EditText) findViewById(R.id.editTextPassword);
+        editTextUsername = findViewById(R.id.editTextUsername);
+        editTextPassword = findViewById(R.id.editTextPassword);
 
 
         //if user presses on login
@@ -109,6 +114,9 @@ public class LoginActivity extends AppCompatActivity {
                         //storing the user in shared preferences
                         SharedPrefManager.getInstance(getApplicationContext()).userLogin(user);
 
+                        UpdateWeek updateweek = new UpdateWeek();
+                        updateweek.updateWeek(getApplicationContext());
+
                         //starting the profile activity
                         finish();
                         startActivity(new Intent(getApplicationContext(), MainActivity.class));
@@ -142,6 +150,9 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
 
-        finishAffinity();
+       finishAffinity();
     }
 }
+
+
+

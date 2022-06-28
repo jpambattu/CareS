@@ -1,5 +1,7 @@
 package com.cea.cares;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -14,7 +16,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -28,6 +34,8 @@ public class RegisterActivity extends AppCompatActivity {
 
         //if the user is already logged in we will directly start the profile activity
         if (SharedPrefManager.getInstance(this).isLoggedIn()) {
+            UpdateWeek updateweek = new UpdateWeek();
+            updateweek.updateWeek(this);
             finish();
             startActivity(new Intent(this, MainActivity.class));
             return;
@@ -146,11 +154,9 @@ public class RegisterActivity extends AppCompatActivity {
                                 userJson.getInt("week")
                         );
 
-                        Toast.makeText(getApplicationContext(), "user created", Toast.LENGTH_SHORT).show();
-
                         //storing the user in shared preferences
                         SharedPrefManager.getInstance(getApplicationContext()).userLogin(user);
-                        Toast.makeText(getApplicationContext(), "saved shared pref", Toast.LENGTH_SHORT).show();
+
 
                         //starting the profile activity
                         finish();
@@ -175,3 +181,6 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
 }
+
+
+

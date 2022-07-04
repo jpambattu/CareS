@@ -18,5 +18,8 @@ API directory has the APIs written for backend MySQL database used.
 ML Model directory has the ML Model built for prediction. We used FLASK framework for ml model deployment.
 
 
+Project directory has the Android Application.
+
+
 
 For workflow, screenshots and diagrams final presentation slides are also in the repo, please refer to it.

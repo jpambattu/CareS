@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Care\'S</string>
+    <string name="title_home">Home</string>
+    <string name="title_activity">Activity</string>
+    <string name="title_profile">Profile</string>
+    <string name="title_moreactions">More Actions</string>
+    <string name="notification_activity">NotificationView</string>
+</resources>
